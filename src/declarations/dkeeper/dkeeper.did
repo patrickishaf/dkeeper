@@ -10,7 +10,7 @@ type List =
      };
 service : {
   createNote: (text, text) -> () oneway;
-  deleteNote: (nat) -> () oneway;
+  deleteNoteAtIndex: (nat) -> () oneway;
   printNotes: () -> (List) query;
   readNotes: () -> (vec Note) query;
 }
