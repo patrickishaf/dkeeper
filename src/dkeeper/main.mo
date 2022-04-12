@@ -28,10 +28,9 @@ actor DKeeper {
     return List.toArray(notes);
   };
 
-  public func deleteNote(id: Nat) {
-    var takenNotes = List.take<Note>(notes, id);
-    List.drop<Note>(notes, (id + 1));
-    
-    Debug.print(debug_show(notes));
+  public func deleteNoteAtIndex(id: Nat) {
+    let listFront = List.take<Note>(notes, id);
+    let listBack = List.drop<Note>(notes, (id + 1));
+    notes := List.append(listFront, listBack);
   };
 }
