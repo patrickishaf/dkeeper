@@ -1,0 +1,16 @@
+type Note = 
+ record {
+   content: text;
+   title: text;
+ };
+type List = 
+ opt record {
+       Note;
+       List;
+     };
+service : {
+  createNote: (text, text) -> () oneway;
+  deleteNote: (nat) -> () oneway;
+  printNotes: () -> (List) query;
+  readNotes: () -> (vec Note) query;
+}
